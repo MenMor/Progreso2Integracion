@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product List</title>
+</head>
+<body>
+    <h1>Product List</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <h2>{{ product.name }}</h2>
+                <img src="{{ product.image_url }}" alt="{{ product.name }} image">
+                <p>Stock: {{ product.stock }}</p>
+                <a href="{% url 'create_order' %}?product_id={{ product.id }}">Order this product</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
